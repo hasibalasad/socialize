@@ -22,8 +22,15 @@ export default function RootLayout({ children }) {
                         <Sidebar />
                     </div>
                     <div>{children}</div>
-
-                    <div>
+                    {/* TODO : lg:flex lg:flex-col */}
+                    <div className="hidden lg:inline w-[24rem] p-3 h-screen border-l">
+                        <div className="sticky top-0 bg-white">
+                            <input
+                                type="text"
+                                placeholder="Search"
+                                className="bg-gray-100 border border-gray-200 w-full rounded-3xl px-4 py-2 text-sm"
+                            />
+                        </div>
                         <News />
                     </div>
                 </div>
