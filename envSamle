@@ -1,0 +1,5 @@
+GOOGLE_CLIENT_ID=1020277900575-79fb6t54g3mo7k8lpejkbe1qotdnsvkh.apps.googleusercontent.com
+GOOGLE_CLIENT_SECRET=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
+
+NEXTAUTH_SECRET=randomanything
+NEXTAUTH_URL=http://localhost:3000

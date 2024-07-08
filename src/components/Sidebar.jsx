@@ -1,10 +1,13 @@
+"use client"
 import React from 'react'
 import { RiShakeHandsFill } from "react-icons/ri";
 import { HiHome } from "react-icons/hi";
 import Link from 'next/link';
+import { signIn, signOut, useSession } from 'next-auth/react';
 
 
 const Sidebar = () => {
+    const { data: session } = useSession()
     return (
         <div className='flex flex-col gap-4 p-3'>
             <Link href='/'>
@@ -17,8 +20,17 @@ const Sidebar = () => {
                 </Link>
                 <span className='font-bold hidden xl:inline'>Home</span>
             </div>
-
-            <button className='w-48 h-9 bg-blue-400 hover:brightness-95 text-white rounded-full transition-all duration-300 shadow-md font-semibold hidden xl:inline'>Sign In</button>
+            {session ? (<button className='w-48 h-9 bg-blue-400 hover:brightness-95 text-white rounded-full
+            transition-all duration-300 shadow-md font-semibold hidden xl:inline'
+                onClick={() => signOut()}
+            >
+                Sign Out
+            </button>) : (<button className='w-48 h-9 bg-blue-400 hover:brightness-95 text-white rounded-full
+            transition-all duration-300 shadow-md font-semibold hidden xl:inline'
+                onClick={() => signIn()}
+            >
+                Sign In
+            </button>)}
         </div>
     )
 }
